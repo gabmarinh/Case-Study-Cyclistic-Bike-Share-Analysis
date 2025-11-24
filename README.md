@@ -49,41 +49,28 @@ q1_2019 <- read_csv("Divvy_Trips_2019_Q1.csv")
 q1_2020 <- read_csv("Divvy_Trips_2020_Q1.csv")
 ```
 Data Cleaning Steps
-Consolidation: Merged 12 months of data into a single dataframe.
-
-Feature Engineering:
-
-Created a ride_length column by subtracting started_at from ended_at.
-
-Created a day_of_week column to analyze weekly patterns.
-
-Data Quality Check:
-
-Removed trips with ride_length < 0 (system errors or maintenance).
-
-Removed trips to/from "HQ QR" (testing stations).
-# Removing "bad" data
+1. Consolidation: Merged 12 months of data into a single dataframe.
+2. Feature Engineering:
+   Created a ride_length column by subtracting started_at from ended_at.
+   Created a day_of_week column to analyze weekly patterns.
+3. Data Quality Check:
+   Removed trips with ride_length < 0 (system errors or maintenance).
+   Removed trips to/from "HQ QR" (testing stations).
+Removing "bad" data
 all_trips_v2 <- all_trips %>% 
   filter(ride_length > 0) %>% 
   filter(start_station_name != "HQ QR")
-  
 4. 📊 Analyze Phase
 I conducted a descriptive analysis to find trends and relationships between the two user types.
 
 Key Findings
-Ride Duration: Casual riders ride for significantly longer durations than members.
-
-Casual Average: ~45 minutes
-
-Member Average: ~15 minutes
-
-Weekly Patterns:
-
-Members: High usage on weekdays (Mon-Fri), peaking at commute times (8 AM / 5 PM). This suggests utility usage.
-
-Casuals: Usage peaks dramatically on Saturdays and Sundays. This suggests leisure usage.
-
-Seasonality: Both groups ride more in summer, but Casual ridership drops near-zero in winter, while Members continue to ride (likely for necessary commuting).
+1. Ride Duration: Casual riders ride for significantly longer durations than members.
+   - Casual Average: ~45 minutes
+   - Member Average: ~15 minutes
+2. Weekly Patterns:
+   - Members: High usage on weekdays (Mon-Fri), peaking at commute times (8 AM / 5 PM). This suggests utility usage.
+   - Casuals: Usage peaks dramatically on Saturdays and Sundays. This suggests leisure usage.
+3. Seasonality: Both groups ride more in summer, but Casual ridership drops near-zero in winter, while Members continue to ride (likely for necessary commuting).
 
 Summary Statistics Calculation
 # Comparing members and casual users
@@ -99,7 +86,8 @@ The bar chart shows a clear crossover. Members dominate the weekdays, but Casual
 
 Visualization 2: Average Trip Duration
 Casual riders consistently have a higher average trip duration throughout the week. Even on Mondays, a casual rider keeps the bike longer than a member.
-# R Code for Visualization
+
+R Code for Visualization
 all_trips_v2 %>% 
   mutate(weekday = wday(started_at, label = TRUE)) %>% 
   group_by(member_casual, weekday) %>% 
@@ -113,16 +101,13 @@ all_trips_v2 %>%
 Based on the analysis that Casual riders are "Weekend Leisure Users", I propose the following strategies to the executive team:
 
 1. The "Weekender" Membership
-Create a new membership tier specifically for weekends (Fri-Sun).
-
+   - Create a new membership tier specifically for weekends (Fri-Sun).
 Why: Casual riders already dominate this timeframe. A full annual membership might feel "wasteful" for them if they don't commute, but a cheaper weekend pass converts them into subscribers.
 
 2. Summer Seasonal Push
-Launch the main marketing campaign in May/June.
-
+   - Launch the main marketing campaign in May/June.
 Why: Data shows Casual ridership peaks in summer. Marketing dollars spent in winter on this segment would have low ROI.
 
 3. Gamification for Long Rides
-Since Casual riders take longer trips, the app could prompt: "You've ridden for 45 mins! As a member, you would have saved $X on this trip."
-
+   - Since Casual riders take longer trips, the app could prompt: "You've ridden for 45 mins! As a member, you would have saved $X on this trip."
 Why: Showing immediate value based on their specific behavior (long rides) is a powerful conversion trigger.
