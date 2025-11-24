@@ -100,14 +100,14 @@ all_trips_v2 %>%
 6. 🚀 Act Phase (Recommendations)
 Based on the analysis that Casual riders are "Weekend Leisure Users", I propose the following strategies to the executive team:
 
-1. The "Weekender" Membership
+. The "Weekender" Membership
    - Create a new membership tier specifically for weekends (Fri-Sun).
 Why: Casual riders already dominate this timeframe. A full annual membership might feel "wasteful" for them if they don't commute, but a cheaper weekend pass converts them into subscribers.
 
-2. Summer Seasonal Push
+. Summer Seasonal Push
    - Launch the main marketing campaign in May/June.
 Why: Data shows Casual ridership peaks in summer. Marketing dollars spent in winter on this segment would have low ROI.
 
-3. Gamification for Long Rides
+. Gamification for Long Rides
    - Since Casual riders take longer trips, the app could prompt: "You've ridden for 45 mins! As a member, you would have saved $X on this trip."
 Why: Showing immediate value based on their specific behavior (long rides) is a powerful conversion trigger.
