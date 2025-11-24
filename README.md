@@ -4,7 +4,7 @@
 **Author:** Gabriel Marín Huerta
 **Role:** Junior Data Analyst (Marketing Team)
 **Date:** November 24, 2025
-**Tools:** R (RStudio), Tableau
+**Tools:** R (RStudio), ggplot2
 
 ---
 
