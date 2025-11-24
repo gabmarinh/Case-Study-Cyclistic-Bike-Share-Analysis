@@ -60,7 +60,7 @@ Removing "bad" data
 all_trips_v2 <- all_trips %>% 
   filter(ride_length > 0) %>% 
   filter(start_station_name != "HQ QR")
-4. 📊 Analyze Phase
+## 4. 📊 Analyze Phase
 I conducted a descriptive analysis to find trends and relationships between the two user types.
 
 Key Findings
